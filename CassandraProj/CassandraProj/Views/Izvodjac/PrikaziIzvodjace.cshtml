@@ -1,0 +1,78 @@
+﻿@model CassandraProj.Models.IzvodjacData
+
+@{
+}
+
+<nav>
+    <button style="margin-bottom: 50px">
+        <a asp-area="" asp-action="PrikaziIzvodjace" asp-controller="IzvodjacController"></a>
+    </button>
+</nav>
+<h1>Lista izvođača</h1>
+<br />
+<br />
+<table border="2" style="background-color:lightpink;text-align:center">
+    <thead>
+        <tr>
+            <th width="200">Izvođač ID</th>
+            <th width="200">Ime</th>
+            <th width="200">Umetničko ime</th>
+            <th width="200">Prezime</th>
+            <th width="200">Email</th>
+            <th width="200">Žanr</th>
+            <th width="200">Ime menadžera</th>
+            <th width="200">Numere</th>
+            <th width="200"> Dodatno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.stdRecords)
+        {
+        <tr>
+            <td>@item.IzvodjacID</td>
+            <td>@item.Ime</td>
+            <td>@item.Umetnickoime</td>
+            <td>@item.Prezime</td>
+            <td>@item.Email</td>
+            <td>@item.Zanr</td>
+            <td>@item.Menadzer</td>
+            <td>
+                <form action="ObrisiIzvodjaca" method="post">
+                    <input type="text" name="izvodjacID" placeholder="izvodjacID" value="@item.IzvodjacID" hidden="hidden" />
+                    <input style="width:100%;background-color:palevioletred" type="submit" value="Obriši izvodjaca" />
+                </form>
+                <form action="PromeniIzvodjaca" method="post">
+                    <input type="text" name="izvodjacID" placeholder="izvodjacID" value="@item.IzvodjacID" hidden="hidden" />
+                    <input style="width:100%;background-color:aliceblue" color="blue" type="submit" value="Modifikuj" background-color="#C8E0E8" />
+                </form>
+            </td>
+            <td>
+                <form action="../Numera/prikaziNumereIzvodjaca">
+                    <input type="text" name="idIzvodjaca" placeholder="idIzvodjaca" value="@item.IzvodjacID" hidden="hidden" />
+                    <input style="width:100%;background-color:palevioletred" type="submit" value="Spisak numera izvodjaca" />
+                </form>
+                <form action="../Numera/kreirajNumeru">
+                    <input type="text" name="idIzvodjaca" placeholder="idIzvodjaca" value="@item.IzvodjacID" hidden="hidden" />
+                    <input style="width:100%;background-color:aliceblue" color="blue" type="submit" value="Dodaj numeru" />
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div></div>
+<div>
+    <a href="../Izvodjac/kreirajIzvodjace" class="this-page-style">Dodaj novog izvođača..</a>
+</div>
+<hr>
+<div>
+    <button>
+        <a href="../Home/Index" class="this-page-style">Vrati se na početnu stranu</a>
+    </button>
+</div>
+
+
+
+
+

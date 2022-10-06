@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3ca74ee2-faed-4104-91c7-2470c817621c": {
+      "ProjectGuid": "3ca74ee2-faed-4104-91c7-2470c817621c",
+      "DisplayName": "CassandraProj",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,51 @@
+﻿@model CassandraProj.Models.Koncert
+
+@{
+    ViewData["Title"] = "kreirajKoncert";
+}
+
+<h1 style="background-color:palevioletred">Unesite novi koncert</h1>
+<h4>Koncert</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="sacuvajKoncertUbazu" method="post">
+            <div class="form-group">
+                <label asp-for="KoncertID" class="control-label"></label>
+                <input asp-for="KoncertID" class="form-control" />
+                <span asp-validation-for="KoncertID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Organizator" class="control-label"></label>
+                <input asp-for="Organizator" class="form-control" />
+                <span asp-validation-for="Organizator" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Opis" class="control-label"></label>
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tip" class="control-label"></label>
+                <input asp-for="Tip" class="form-control" />
+                <span asp-validation-for="Tip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sponzor" class="control-label"></label>
+                <input asp-for="Sponzor" class="form-control" />
+                <span asp-validation-for="Sponzor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kreiraj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

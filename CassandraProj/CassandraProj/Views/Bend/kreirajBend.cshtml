@@ -1,0 +1,46 @@
+﻿@model CassandraProj.Models.Bend
+
+@{
+    ViewData["Title"] = "kreirajBend";
+}
+
+<h1 style="background-color:palevioletred">Kreiraj novi bend</h1>
+
+<h4>Bend</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="sacuvajBenduBazi"  method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BendID" class="control-label"></label>
+                <input asp-for="BendID" class="form-control" />
+                <span asp-validation-for="BendID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brclanova" class="control-label"></label>
+                <input asp-for="Brclanova" class="form-control" />
+                <span asp-validation-for="Brclanova" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brojtel" class="control-label"></label>
+                <input asp-for="Brojtel" class="form-control" />
+                <span asp-validation-for="Brojtel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kreiraj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

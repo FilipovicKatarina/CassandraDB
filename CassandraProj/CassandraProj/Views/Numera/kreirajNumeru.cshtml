@@ -1,0 +1,47 @@
+﻿@model CassandraProj.Models.Numera
+
+@{
+    ViewData["Title"] = "kreirajNumeru";
+}
+
+<h1 style="background-color:palevioletred">Kreiraj numeru</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="sacuvajNumeruUbazu" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumeraID" class="control-label"></label>
+                <input asp-for="NumeraID" class="form-control" />
+                <span asp-validation-for="NumeraID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IzvodjacID" hidden class="control-label"></label>
+                <input asp-for="IzvodjacID" value="@Model.IzvodjacID" hidden class="form-control"/>
+                <span asp-validation-for="IzvodjacID" hidden class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trajanje" class="control-label"></label>
+                <input asp-for="Trajanje" class="form-control" />
+                <span asp-validation-for="Trajanje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor" class="control-label"></label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kreiraj " class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CassandraProj.Models.Koncert>
+
+@{
+    ViewData["Title"] = "prikaziPreporukeKncerata";
+}
+
+<h1 style="width:650px; background-color:palevioletred">Preporuke koncerata</h1>
+<br />
+<br />
+<table border="2" style="background-color:lightgreen;text-align:center">
+    @if (Model != null)
+    {
+        <thead>
+            <tr>
+                <th width="200">Koncert ID</th>
+                <th width="200">Ime</th>
+                <th width="200">Organizator</th>
+                <th width="200">Sponzor</th>
+                <th width="200">Opis</th>
+                <th width="200">Tip</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.KoncertID</td>
+                    <td>@item.Ime</td>
+                    <td>@item.Organizator</td>
+                    <td>@item.Sponzor</td>
+                    <td>@item.Opis</td>
+                    <td>@item.Tip</td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>
+<br />
+<br />
+<br />
+<div>
+    <button>
+        <a href="../Koncert/PretragaKoncerataPoTipu" class="this-page-style">Vrati se na prethodnu stranu</a>
+    </button>
+</div>

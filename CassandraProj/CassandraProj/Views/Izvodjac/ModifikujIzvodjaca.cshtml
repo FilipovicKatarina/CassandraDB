@@ -1,0 +1,57 @@
+﻿@model CassandraProj.Models.Izvodjac
+
+@{
+    ViewData["Title"] = "ModifikujIzvodjaca";
+}
+
+<h1 style="background-color:palevioletred">Modifikuj izabranog izvođača</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="SacuvajModifikovanogIzvodjaca" method="post">  
+            <div class="form-group" style="background-color:lightblue">
+                <label asp-for="IzvodjacID" class="control-label"></label>
+                <input asp-for="IzvodjacID" class="form-control" value="@Model.IzvodjacID" hidden />
+                <label>: @Model.IzvodjacID</label>
+                <span asp-validation-for="IzvodjacID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" value="@Model.Ime" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Umetnickoime" class="control-label"></label>
+                <input asp-for="Umetnickoime" class="form-control" value="@Model.Umetnickoime"/>
+                <span asp-validation-for="Umetnickoime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prezime" class="control-label"></label>
+                <input asp-for="Prezime" class="form-control" value="@Model.Prezime"/>
+                <span asp-validation-for="Prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" value="@Model.Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Zanr" class="control-label"></label>
+                <input asp-for="Zanr" class="form-control" value="@Model.Zanr"/>
+                <span asp-validation-for="Zanr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Menadzer" class="control-label"></label>
+                <input asp-for="Menadzer" class="form-control" value="@Model.Menadzer"/>
+                <span asp-validation-for="Menadzer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Modifikuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

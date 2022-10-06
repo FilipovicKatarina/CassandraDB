@@ -1,0 +1,60 @@
+﻿@model CassandraProj.Models.BendData
+
+@{
+}
+ 
+<nav>
+    <button style="margin-bottom: 50px">
+        <a asp-area="" asp-action="PrikaziBendove" asp-controller="BendController"></a>
+    </button>
+</nav>
+<br />
+<br />
+<h1>Prikaz svih bendova</h1>
+<br />
+<br />
+<table border="2" style="background-color:lightpink;text-align:center">
+    <thead>
+        <tr>
+            <th width="200">Bend ID</th>
+            <th width="200"> Ime benda</th>
+            <th width="200">Broj članova</th>
+            <th width="200">Broj telefona</th>
+            <th width="200">Dodatno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.stdRecords)
+        {
+        <tr>
+            <td>@item.BendID</td>
+            <td>@item.Ime</td>
+            <td>@item.Brclanova</td>
+            <td>@item.Brojtel</td>
+            <td>
+                <form action="ObrisiBend" method="post">
+                    <input type="text" name="bendID" placeholder="bendID" value="@item.BendID" hidden="hidden" />
+                    <input style="width:100%;background-color:palevioletred" type="submit" value="Obriši bend" />
+                </form>
+                <form action="PromeniBend" method="post">
+                    <input type="text" name="bendID" placeholder="bendID" value="@item.BendID" hidden="hidden" />
+                    <input style="width:100%;background-color:aliceblue" color="blue" type="submit" value="Modifikuj" background-color="#C8E0E8" />
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div></div>
+<div>
+    <a href="../Bend/kreirajBend" class="this-page-style">Dodaj novi bend..</a>
+</div>
+<hr>
+<div>
+    <button>
+        <a href="../Home/Index" class="this-page-style">Vrati se na početnu stranu</a>
+    </button>
+</div>
+
+

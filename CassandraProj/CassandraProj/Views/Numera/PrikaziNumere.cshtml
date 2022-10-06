@@ -1,0 +1,38 @@
+﻿@model CassandraProj.Models.NumeraData
+
+@{
+}
+
+<nav>
+    <button style="margin-bottom: 50px">
+        <a asp-area="" asp-action="PrikaziNumere" asp-controller="NumeraController"></a>
+    </button>
+
+</nav>
+<h1>Prikazi numere</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th width="200">Numera ID</th>
+            <th width="200">Izvođač ID</th>
+            <th width="200"> Ime</th>
+            <th width="200">Trajanje</th>
+            <th width="200">Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.stdRecords)
+        {
+            <tr>
+                <td>@item.NumeraID</td>
+                <td>@item.IzvodjacID</td>
+                <td>@item.Ime</td>
+                <td>@item.Trajanje</td>
+                <td>@item.Autor</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

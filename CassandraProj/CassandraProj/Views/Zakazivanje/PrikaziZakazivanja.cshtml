@@ -1,0 +1,65 @@
+﻿@model CassandraProj.Models.ZakazivanjeData
+
+@{;
+}
+
+<nav>
+    <button style="margin-bottom: 50px">
+        <a asp-area="" asp-action="PrikaziZakazivaja" asp-controller="ZakazivanjeController"></a>
+    </button>
+
+</nav>
+<h1>Prikazi zakazano</h1>
+<table  border="2" style="background-color:lightpink;text-align:center">
+    <thead>
+        <tr>
+            <th width="200">Zakazivanje ID</th>
+            <th width="200">Izvođač ID</th>
+            <th width="200"> Bend ID</th>
+            <th width="200">Koncert ID</th>
+            <th width="200">Vreme</th>
+            <th width="200">Datum</th>
+            <th width="200">Dodatne inf.</th>
+            <th width="200"> Dodatno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.stdRecords)
+        {
+            <tr>
+                <td>@item.ZakID</td>
+                <td>@item.IzvodjacID</td>
+                <td>@item.BendID</td>
+                <td>@item.KoncertID</td>
+                <td>@item.Vreme</td>
+                <td>@item.Datum</td>
+                <td>@item.Dodatinf</td>
+                <td>
+                    <form action="ObrisiZakazivanje" method="post">
+                        <input type="text" name="zakID" placeholder="zakID" value="@item.ZakID" hidden="hidden" />
+                        <input style="width:100%;background-color:palevioletred" type="submit" value="Obriši zakazano" />
+                    </form>
+                    <form action="PromeniZakazivanje" method="post">
+                        <input type="text" name="zakID" placeholder="zakID" value="@item.ZakID" hidden="hidden" />
+                        <input style="width:100%;background-color:aliceblue" color="blue" type="submit" value="Modifikuj" background-color="#C8E0E8" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div></div>
+<div>
+    <a href="../Zakazivanje/kreirajZakazivanje" class="this-page-style">Zakaži novi koncert..</a>
+</div>
+<hr>
+<div>
+    <button>
+        <a href="../Home/Index" class="this-page-style">Vrati se na početnu stranu</a>
+    </button>
+</div>
+
+
+
+

@@ -1,0 +1,38 @@
+﻿
+@model IEnumerable<CassandraProj.Models.Numera>
+
+@{
+    ViewData["Title"] = "prikaziNumereIzvodjaca";
+}
+
+<h1>Prikaz numera </h1>
+<br />
+<br />
+<a href="../Izvodjac/PrikaziIzvodjace" class="this-page-style">Vrati se na prikaz izvodjaca..</a>
+<br />
+<p>
+    <a asp-area="" asp-action="prikaziNumereIzvodjaca" asp-controller="NumeraController"></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th width="200">Izvodjac ID </th>
+            <th width="200"> Numera ID  </th>
+            <th width="200">Autor pesme</th>
+            <th width="200">Naziv pesme</th>
+            <th width="200">Trajanje pesme</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IzvodjacID</td>
+                <td>@item.NumeraID</td>
+                <td>@item.Autor</td>
+                <td>@item.Ime</td>
+                <td>@item.Trajanje</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,43 @@
+﻿@model CassandraProj.Models.Bend
+
+@{
+    ViewData["Title"] = "ModifikujBend";
+}
+
+<h1 style="background-color:palevioletred">Modifikuj izabrani bend</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="SacuvajModifikovanBend" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group style="background-color:lightblue">
+                <label asp-for="BendID" class="control-label"></label>
+                <input asp-for="BendID" class="form-control" value="@Model.BendID" hidden/>
+                <label>: @Model.BendID</label>
+                <span asp-validation-for="BendID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label"></label>
+                <input asp-for="Ime" class="form-control" value="@Model.Ime"/>
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brclanova" class="control-label"></label>
+                <input asp-for="Brclanova" class="form-control" value="@Model.Brclanova" />
+                <span asp-validation-for="Brclanova" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brojtel" class="control-label"></label>
+                <input asp-for="Brojtel" class="form-control" value="@Model.Brojtel" />
+                <span asp-validation-for="Brojtel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Modifikuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
